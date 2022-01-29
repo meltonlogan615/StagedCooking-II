@@ -74,6 +74,19 @@
 		32A4B9A427549D6800DD3728 /* RecipeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A4B9A327549D6800DD3728 /* RecipeDetails.swift */; };
 		32A4B9A627549EB400DD3728 /* WinePairing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A4B9A527549EB400DD3728 /* WinePairing.swift */; };
 		32A4B9A82754A39900DD3728 /* IngredientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A4B9A72754A39900DD3728 /* IngredientList.swift */; };
+		32CABD4F27A106E40071120F /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD4E27A106E40071120F /* LogInView.swift */; };
+		32CABD5127A1078B0071120F /* AcctCreation-Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD5027A1078B0071120F /* AcctCreation-Notes.swift */; };
+		32CABD5427A116170071120F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD5327A116170071120F /* SignUpView.swift */; };
+		32CABD5727A117420071120F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD5627A117420071120F /* SignUpViewController.swift */; };
+		32CABD5A27A117B30071120F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD5927A117B30071120F /* SettingsView.swift */; };
+		32CABD5C27A1184A0071120F /* AppLevelProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD5B27A1184A0071120F /* AppLevelProperties.swift */; };
+		32CABD5F27A11F650071120F /* SignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD5E27A11F650071120F /* SignInWithAppleButton.swift */; };
+		32CABD6127A120950071120F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD6027A120950071120F /* CustomTextField.swift */; };
+		32CABD6327A1AB160071120F /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD6227A1AB160071120F /* ActionButton.swift */; };
+		32CABD6527A255A50071120F /* CellForTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD6427A255A50071120F /* CellForTableView.swift */; };
+		32CABD6727A257F30071120F /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD6627A257F30071120F /* TestTableViewController.swift */; };
+		32CABD6927A258060071120F /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD6827A258060071120F /* TestCollectionViewController.swift */; };
+		32CABD6B27A258AC0071120F /* CellForCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CABD6A27A258AC0071120F /* CellForCollectionView.swift */; };
 		32E62516273F2A55002E2EB0 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E62515273F2A55002E2EB0 /* DataProvider.swift */; };
 		32E62518273F2A5B002E2EB0 /* NetworkDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E62517273F2A5B002E2EB0 /* NetworkDataFlow.swift */; };
 		32E6251B273F2A78002E2EB0 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E6251A273F2A78002E2EB0 /* EndPoints.swift */; };
@@ -152,6 +165,19 @@
 		32A4B9A327549D6800DD3728 /* RecipeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetails.swift; sourceTree = "<group>"; };
 		32A4B9A527549EB400DD3728 /* WinePairing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinePairing.swift; sourceTree = "<group>"; };
 		32A4B9A72754A39900DD3728 /* IngredientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientList.swift; sourceTree = "<group>"; };
+		32CABD4E27A106E40071120F /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		32CABD5027A1078B0071120F /* AcctCreation-Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AcctCreation-Notes.swift"; sourceTree = "<group>"; };
+		32CABD5327A116170071120F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		32CABD5627A117420071120F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		32CABD5927A117B30071120F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		32CABD5B27A1184A0071120F /* AppLevelProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLevelProperties.swift; sourceTree = "<group>"; };
+		32CABD5E27A11F650071120F /* SignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButton.swift; sourceTree = "<group>"; };
+		32CABD6027A120950071120F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		32CABD6227A1AB160071120F /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		32CABD6427A255A50071120F /* CellForTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForTableView.swift; sourceTree = "<group>"; };
+		32CABD6627A257F30071120F /* TestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
+		32CABD6827A258060071120F /* TestCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
+		32CABD6A27A258AC0071120F /* CellForCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForCollectionView.swift; sourceTree = "<group>"; };
 		32E62515273F2A55002E2EB0 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		32E62517273F2A5B002E2EB0 /* NetworkDataFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFlow.swift; sourceTree = "<group>"; };
 		32E6251A273F2A78002E2EB0 /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
@@ -258,6 +284,7 @@
 				321921BE2795E2A10026EB74 /* DummyData.swift */,
 				321921D2279A7CBE0026EB74 /* Animations.swift */,
 				321921D0279A7C670026EB74 /* CountdownTimer.swift */,
+				32CABD5B27A1184A0071120F /* AppLevelProperties.swift */,
 			);
 			path = AppData;
 			sourceTree = "<group>";
@@ -315,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				3227CFFE279EEB3D00667F0F /* LogInViewController.swift */,
+				32CABD5627A117420071120F /* SignUpViewController.swift */,
 				3227CFFC279EEAB500667F0F /* SettingsViewController.swift */,
 			);
 			path = SystemViewControllers;
@@ -353,6 +381,7 @@
 				321921DD279BD0A40026EB74 /* AdvancedSearch-Notes.swift */,
 				3227D002279EECCF00667F0F /* Settings-Notes.swift */,
 				3227D004279EECE000667F0F /* SignIn-Notes.swift */,
+				32CABD5027A1078B0071120F /* AcctCreation-Notes.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -415,7 +444,7 @@
 		3290E9DE2740279A00CE7C4A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				321921AF2795AEB20026EB74 /* TestViewController.swift */,
+				32CABD6C27A258F10071120F /* TestViewControllers */,
 				3227D000279EEC4300667F0F /* SystemViewControllers */,
 				321921B12795AF150026EB74 /* HistoryViewControllers */,
 				321921EF279DC3C30026EB74 /* SearchViewControllers */,
@@ -430,11 +459,45 @@
 		3290E9DF27417B7E00CE7C4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				32CABD5D27A11F1E0071120F /* Elements */,
+				32CABD5227A115CA0071120F /* SystemViews */,
 				3219219D279514FF0026EB74 /* SearchView */,
 				3219219E279515080026EB74 /* RecipeView */,
 				3219219F279515190026EB74 /* CardView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		32CABD5227A115CA0071120F /* SystemViews */ = {
+			isa = PBXGroup;
+			children = (
+				32CABD4E27A106E40071120F /* LogInView.swift */,
+				32CABD5327A116170071120F /* SignUpView.swift */,
+				32CABD5927A117B30071120F /* SettingsView.swift */,
+			);
+			path = SystemViews;
+			sourceTree = "<group>";
+		};
+		32CABD5D27A11F1E0071120F /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				32CABD5E27A11F650071120F /* SignInWithAppleButton.swift */,
+				32CABD6027A120950071120F /* CustomTextField.swift */,
+				32CABD6227A1AB160071120F /* ActionButton.swift */,
+				32CABD6427A255A50071120F /* CellForTableView.swift */,
+				32CABD6A27A258AC0071120F /* CellForCollectionView.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		32CABD6C27A258F10071120F /* TestViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				321921AF2795AEB20026EB74 /* TestViewController.swift */,
+				32CABD6627A257F30071120F /* TestTableViewController.swift */,
+				32CABD6827A258060071120F /* TestCollectionViewController.swift */,
+			);
+			path = TestViewControllers;
 			sourceTree = "<group>";
 		};
 		32E62512273F2965002E2EB0 /* Delegates */ = {
@@ -571,6 +634,7 @@
 				322A163427594558004D6268 /* GlobalHelpers.swift in Sources */,
 				32E62521273F2A98002E2EB0 /* JsonParser.swift in Sources */,
 				3268A803274AA7C400D35BBD /* SelectedRecipeViewController.swift in Sources */,
+				32CABD6127A120950071120F /* CustomTextField.swift in Sources */,
 				32E62516273F2A55002E2EB0 /* DataProvider.swift in Sources */,
 				321921DE279BD0A40026EB74 /* AdvancedSearch-Notes.swift in Sources */,
 				322A161627555C6D004D6268 /* Product.swift in Sources */,
@@ -581,7 +645,9 @@
 				3220677C275FDA06001B7283 /* AttributedString-Extension.swift in Sources */,
 				321921B32795AF2E0026EB74 /* ViewedHistoryViewController.swift in Sources */,
 				3227D003279EECCF00667F0F /* Settings-Notes.swift in Sources */,
+				32CABD6527A255A50071120F /* CellForTableView.swift in Sources */,
 				321921F3279DC6240026EB74 /* AdvancedSearchProperties.swift in Sources */,
+				32CABD6B27A258AC0071120F /* CellForCollectionView.swift in Sources */,
 				32E62518273F2A5B002E2EB0 /* NetworkDataFlow.swift in Sources */,
 				32A4B9A02752A1AC00DD3728 /* Spoonacular-Notes.swift in Sources */,
 				321921DC279BCF4D0026EB74 /* AdvancedSearchView.swift in Sources */,
@@ -591,6 +657,7 @@
 				322A161E27569979004D6268 /* SearchByIngredients-Notes.swift in Sources */,
 				3298204E274C3B8300971F99 /* UIImage-Extension.swift in Sources */,
 				322A162B2757E4D3004D6268 /* RecipeInformationByID-Notes.swift in Sources */,
+				32CABD6727A257F30071120F /* TestTableViewController.swift in Sources */,
 				32982048274C0D9A00971F99 /* FavoritesViewController.swift in Sources */,
 				321921B52795AF8D0026EB74 /* SearchedHistoryViewController.swift in Sources */,
 				32E6251B273F2A78002E2EB0 /* EndPoints.swift in Sources */,
@@ -602,9 +669,11 @@
 				3227CFFD279EEAB500667F0F /* SettingsViewController.swift in Sources */,
 				32E6251E273F2A8A002E2EB0 /* NetworkAccess.swift in Sources */,
 				321921F1279DC3E10026EB74 /* AdvancedSearchViewController.swift in Sources */,
+				32CABD6327A1AB160071120F /* ActionButton.swift in Sources */,
 				321921C327973F5C0026EB74 /* StagedCardContainerViewController.swift in Sources */,
 				321921D3279A7CBE0026EB74 /* Animations.swift in Sources */,
 				321921BB2795B8EE0026EB74 /* RecipeMetaDataView.swift in Sources */,
+				32CABD5A27A117B30071120F /* SettingsView.swift in Sources */,
 				32A4B9A627549EB400DD3728 /* WinePairing.swift in Sources */,
 				322A162F2757EB22004D6268 /* Equipment.swift in Sources */,
 				321921E5279D16F50026EB74 /* Diets.swift in Sources */,
@@ -612,9 +681,13 @@
 				3268A807274AC2F100D35BBD /* StagedCardView.swift in Sources */,
 				321921C9279847A00026EB74 /* IngredientLineView.swift in Sources */,
 				3216433327435112000BD7EA /* RecipeListTableViewController.swift in Sources */,
+				32CABD5727A117420071120F /* SignUpViewController.swift in Sources */,
+				32CABD4F27A106E40071120F /* LogInView.swift in Sources */,
 				322A162227569EB3004D6268 /* RecipeIngredientsByID-Notes.swift in Sources */,
+				32CABD5427A116170071120F /* SignUpView.swift in Sources */,
 				322A16392759EC26004D6268 /* CuisineTypes.swift in Sources */,
 				3227D005279EECE000667F0F /* SignIn-Notes.swift in Sources */,
+				32CABD5127A1078B0071120F /* AcctCreation-Notes.swift in Sources */,
 				321921A527951CE50026EB74 /* RecipeHeaderView.swift in Sources */,
 				3220677A275F9E74001B7283 /* PropertyOption.swift in Sources */,
 				322A162D2757EA19004D6268 /* Step-Notes.swift in Sources */,
@@ -629,7 +702,10 @@
 				321921B02795AEB20026EB74 /* TestViewController.swift in Sources */,
 				322A161A27556453004D6268 /* RecipeSummary.swift in Sources */,
 				321921EB279D1B460026EB74 /* AdvancedSearchMinMax.swift in Sources */,
+				32CABD5F27A11F650071120F /* SignInWithAppleButton.swift in Sources */,
 				32A4B9A82754A39900DD3728 /* IngredientList.swift in Sources */,
+				32CABD5C27A1184A0071120F /* AppLevelProperties.swift in Sources */,
+				32CABD6927A258060071120F /* TestCollectionViewController.swift in Sources */,
 				321921B92795B6440026EB74 /* RecipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

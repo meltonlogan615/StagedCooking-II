@@ -24,23 +24,23 @@ extension UIImageView {
   }
 }
 
-extension UIImage {
-  func loadImageToVariable(url: String) -> UIImage {
-    var cellImage = UIImage()
-    if let url = URL(string: url) {
-      DispatchQueue.global().async { [weak self] in
-        if let data = try? Data(contentsOf: url) {
-          if let image = UIImage(data: data) {
-            DispatchQueue.main.async {
-              cellImage = image
-            }
-          }
-        }
-      }
-    }
-    return cellImage
-  }
-}
+//extension UIImage {
+//  func loadImageToVariable(url: String) -> UIImage {
+//    var cellImage = UIImage()
+//    if let url = URL(string: url) {
+//      DispatchQueue.global().async {
+//        if let data = try? Data(contentsOf: url) {
+//          if let image = UIImage(data: data) {
+//            DispatchQueue.main.async {
+//              cellImage = image
+//            }
+//          }
+//        }
+//      }
+//    }
+//    return cellImage
+//  }
+//}
 
 // Source:
 // https://www.hackingwithswift.com/quick-start/swiftui/how-to-load-a-remote-image-from-a-url

@@ -9,8 +9,15 @@ import UIKit
 
 class ViewedHistoryViewController: UITableViewController {
   
+  let dataprovider = DataProvider()
   let myList = MyList()
   var viewedKeys = [Int]()
+  
+  var recipe = Recipe()
+  var ingredients = [Ingredient]()
+  var recipeID = 0
+  var propertyDictionary = [String: String]()
+  var ingredientDictionary = [String: String]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,36 +41,41 @@ class ViewedHistoryViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // show recipe
-    print("poop")
+    print("tappa-tappa-tappa")
+
   }
   
 }
 
-extension ViewedHistoryViewController {
-  private func searchFromHistoryList(recipeID: Int) {
-    let recipeVC = RecipeViewController()
-    recipeVC.recipeID = recipeID
-    let navigationController = UINavigationController(rootViewController: recipeVC)
-    navigationController.modalPresentationStyle = .fullScreen
-    navigationController.modalTransitionStyle = .coverVertical
-    present(navigationController, animated: true)
-  }
-}
-
-extension ViewedHistoryViewController {
-  @objc func dismissHistory() {
-    self.dismiss(animated: true)
-  }
-}
-
-//extension ViewedHistoryViewController {
-//  func getRecipeIDs() {
-//    for (key, _) in MyList.viewedRecipes {
-//      viewedKeys.append(key)
-//      printContent(key)
-//    }
-//  }
-//}
+extension ViewedHistoryViewController: RecipeByID {
+    func loadRecipeByID(for chosenID: Int) {
+      dataprovider.getRecipeByID(for: chosenID) { [weak self] (foodResult: Result<Recipe, Error>) in
+        guard let self = self else { return }
+        switch foodResult {
+          case .success(let model):
+            DispatchQueue.main.async {
+              self.recipe = model as Recipe
+              self.propertyDictionary = ParseObjectProperties.iterateObject(self.recipe)
+            }
+          case .failure(let error):
+            print(error)
+        }
+      }
+    }
+    
+  func loadIngredientsByID(for chosenID: Int) {
+    dataprovider.getIngredientsByID(for: chosenID) { [weak self] (ingredientResult: Result<[Ingredient], Error>) in
+      guard let self = self else { return }
+      switch ingredientResult {
+        case .success(let model):
+          DispatchQueue.main.async {
+            self.ingredients = model as [Ingredient]
+            self.ingredientDictionary = ParseObjectProperties.iterateObject(self.ingredients)
+          }
+        case .failure(let error):
+          print(error)
+      }
+    }
+  }  }
 
 

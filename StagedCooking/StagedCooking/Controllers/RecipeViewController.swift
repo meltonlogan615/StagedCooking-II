@@ -13,10 +13,7 @@ import UIKit
 class RecipeViewController: UIViewController {
   
   let testData = DummyData()
-  
   let dataprovider = DataProvider()
-  var recipe = Recipe()
-  var ingredients = [Ingredient]()
   
   let label = UILabel()
   let stackView = UIStackView()
@@ -25,6 +22,8 @@ class RecipeViewController: UIViewController {
   let searchView = SearchView()
   let startCookingButton = UIButton(type: .roundedRect)
   
+  var recipe = Recipe()
+  var ingredients = [Ingredient]()
   var recipeID = 0
   var propertyDictionary = [String: String]()
   var ingredientDictionary = [String: String]()
@@ -122,7 +121,7 @@ extension RecipeViewController: RecipeByID {
       guard let self = self else { return }
       switch ingredientResult {
         case .success(let model):
-          print(model)
+//          print(model)
           DispatchQueue.main.async {
             self.ingredients = model as [Ingredient]
             print(self.ingredients)

@@ -10,7 +10,7 @@ import UIKit
 class SearchView: UIView {
   
   let stackView = UIStackView()
-  let searchTextField = UITextField()
+  let searchTextField = CustomTextField()
   let searchButton = UIButton(type: .system)
   let errorLabel = UILabel()
   
@@ -43,13 +43,6 @@ extension SearchView {
     
     searchTextField.translatesAutoresizingMaskIntoConstraints = false
     searchTextField.placeholder = "Search"
-    searchTextField.textAlignment = .center
-    searchTextField.backgroundColor = .secondarySystemBackground
-    searchTextField.font = UIFont.systemFont(ofSize: 20)
-    searchTextField.isSecureTextEntry = false
-    searchTextField.delegate = self
-    searchTextField.layer.cornerRadius = 5
-    searchButton.clipsToBounds = true
     
     searchButton.translatesAutoresizingMaskIntoConstraints = false
     searchButton.configuration = .filled()

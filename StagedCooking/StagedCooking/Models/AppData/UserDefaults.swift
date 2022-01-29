@@ -8,6 +8,7 @@
 import Foundation
 
 struct MyList {
+  static var isLoggedIn = true
   static var defaults = UserDefaults.standard
   static var favoriteRecipes = [Recipe]()
   static var savedRecipes = [Recipe]() // Saved, but not an explicit favorite. But can still be both

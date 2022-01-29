@@ -74,6 +74,14 @@ extension SearchViewController {
     searchView.searchHistoryButton.addTarget(self, action: #selector(searchHistoryButtonTapped), for: .primaryActionTriggered)
     searchView.viewedHistoryButton.addTarget(self, action: #selector(viewedHistoryButtonTapped), for: .primaryActionTriggered)
     searchView.advancedSearchButton.addTarget(self, action: #selector(advancedSearchButtonTapped), for: .primaryActionTriggered)
+    
+    if MyList.isLoggedIn == true {
+      searchView.searchHistoryButton.isHidden = false
+      searchView.viewedHistoryButton.isHidden = false
+    } else {
+      searchView.searchHistoryButton.isHidden = true
+      searchView.viewedHistoryButton.isHidden = true
+    }
   }
 }
 

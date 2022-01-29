@@ -18,21 +18,23 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
   var model = Response()
   var recipe = Recipe(title: "")
   
+  let recipesTableView = UITableView()
   var searchedRecipe = String()
-  var cellThumbnail = String()
-  var thumbnailURL = URL(string: "")
   var leftBarButtonText = String()
+  var loadMoreButton = UIButton(type: .system)
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "recipeCell")
+    recipesTableView.register(CellForTableView.self, forCellReuseIdentifier: "recipeCell")
+    recipesTableView.bounces = true
     
     title = searchedRecipe.capitalized
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(dismissView))
     
-    //    navigationItem.leftBarButtonItem = UIBarButtonItem(title: leftBarButtonText, style: .plain, target: self, action: #selector(dismissView))
-    tableView.bounces = true
     loadRecipes(for: searchedRecipe)
+    
+    style()
+    layout()
   }
   
   func loadRecipes(for: String) {
@@ -46,10 +48,6 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
             // MARK: - Text Labels
             guard let receipe = result.title else { return }
             self.searchedRecipe = receipe
-            guard let image = result.image else { return }
-            self.cellThumbnail = image
-            print(self.cellThumbnail)
-            // MARK: - Thumbnails
           }
         case .failure(let error):
           print(error)
@@ -65,17 +63,15 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
-    var config = cell.defaultContentConfiguration()
+    let cell = recipesTableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! CellForTableView
     if let recipeItems = model.results {
-      if let receipe = recipeItems[indexPath.row].title {
-        config.text = receipe
-        config.textProperties.numberOfLines = 0
-        config.textProperties.lineBreakMode = .byWordWrapping
-        config.imageToTextPadding = 5
+      if let receipeTitle = recipeItems[indexPath.row].title {
+        cell.titleLabel.text = receipeTitle
+      }
+      if let recipeImage = recipeItems[indexPath.row].image {
+        cell.image.loadImage(url: recipeImage)
       }
     }
-    cell.contentConfiguration = config
     cell.accessoryType = .disclosureIndicator
     return cell
   }
@@ -93,6 +89,44 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     recipeVC.recipeID = selectedID
     navigationController?.pushViewController(recipeVC, animated: true)
   }
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 100
+  }
+}
+
+extension RecipeListTableViewController {
+  private func style() {
+    recipesTableView.translatesAutoresizingMaskIntoConstraints = false
+    
+    loadMoreButton.translatesAutoresizingMaskIntoConstraints = false
+    loadMoreButton.setTitle("Load More", for: [])
+    loadMoreButton.addTarget(self, action: #selector(loadMoreRecipes), for: .primaryActionTriggered)
+  }
+  
+  private func layout() {
+    view.addSubview(recipesTableView)
+    view.addSubview(loadMoreButton)
+    
+    NSLayoutConstraint.activate([
+      recipesTableView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1),
+      recipesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      recipesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+    ])
+    
+    NSLayoutConstraint.activate([
+      loadMoreButton.widthAnchor.constraint(equalTo: view.widthAnchor),
+      view.trailingAnchor.constraint(equalToSystemSpacingAfter: loadMoreButton.trailingAnchor, multiplier: 1),
+      view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: loadMoreButton.bottomAnchor, multiplier: 1),
+      loadMoreButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1)
+    ])
+  }
+}
+
+extension RecipeListTableViewController {
+  @objc func loadMoreRecipes() {
+    print("poop")
+  }
 }
 
 
@@ -104,5 +138,5 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
 // TODO: - Add Star to mark favorites and add to a locally stored array of favorites.
 
 // TODO: - Update to include call to loadImage(url: )
-// The iss here is that `cell.defaultContentConfiguration()` does not have a UIImageView that is obviously accessable. Will need a way to unwrap the url, pass it into the UIImageView.loadImage(url:), assign the resulting image as a named variable and then config.image = UIImage(named: variable)
+// The issue here is that `cell.defaultContentConfiguration()` does not have a UIImageView that is directly accessable. Will need a way to unwrap the url, pass it into the UIImageView.loadImage(url:), assign the resulting image as a named variable and then config.image = UIImage(named: variable)
 // See UIImage-Extension.swift for thoughts on replicating the previous extension, but providing a return value as a UIImage
