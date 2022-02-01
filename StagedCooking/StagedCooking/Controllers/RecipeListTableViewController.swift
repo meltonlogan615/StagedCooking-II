@@ -103,8 +103,8 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     if let recipeToSave = self.model.results {
       action = UIContextualAction(style: .normal, title: "Save") { [weak self] (action, view, completionHandler) in
         let recipe = recipeToSave[indexPath.row]
-        self?.myList.addToSaved(recipe: recipe)
-        self?.myList.saveChanges()
+//        self?.myList.addToSaved(recipe: recipe)
+//        self?.myList.saveChanges()
         print(String(describing: type(of: recipe)))
         print("Leading Swipe", recipe.title ?? "Nah")
       }
@@ -118,8 +118,8 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     if let recipeToFave = model.results {
       action = UIContextualAction(style: .normal, title: "Favorite") { [weak self] (action, view, completionHandler) in
         let recipe = recipeToFave[indexPath.row]
-        self?.myList.addToFavorites(recipe: recipe)
-        self?.myList.saveChanges()
+//        self?.myList.addToFavorites(recipe: recipe)
+//        self?.myList.saveChanges()
         print("Trailing Swipe", recipe.title ?? "Nah")
       }
       action.backgroundColor = .blue
