@@ -19,9 +19,13 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
   var recipe = Recipe(title: "")
   
   let recipesTableView = UITableView()
+  var action = UIContextualAction()
+  
   var searchedRecipe = String()
   var leftBarButtonText = String()
   var loadMoreButton = UIButton(type: .system)
+  
+  var myList = MyList()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -76,8 +80,11 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     return cell
   }
   
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 100
+  }
   
-  // DID SELECT ROW AT
+  // MARK: - DID SELECT ROW AT
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let selected = (model.results?[indexPath.row]) else { return }
     guard let selectedID = (model.results?[indexPath.row].id) else { return }
@@ -90,8 +97,35 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     navigationController?.pushViewController(recipeVC, animated: true)
   }
   
-  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 100
+  // MARK: - SwipeGestures
+  // From Leading to Trailing
+  override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    if let recipeToSave = self.model.results {
+      action = UIContextualAction(style: .normal, title: "Save") { [weak self] (action, view, completionHandler) in
+        let recipe = recipeToSave[indexPath.row]
+        self?.myList.addToSaved(recipe: recipe)
+        self?.myList.saveChanges()
+        print(String(describing: type(of: recipe)))
+        print("Leading Swipe", recipe.title ?? "Nah")
+      }
+      action.backgroundColor = .orange
+    }
+    return UISwipeActionsConfiguration(actions: [action])
+  }
+  
+  // From Trailing to Leading
+  override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    if let recipeToFave = model.results {
+      action = UIContextualAction(style: .normal, title: "Favorite") { [weak self] (action, view, completionHandler) in
+        let recipe = recipeToFave[indexPath.row]
+        self?.myList.addToFavorites(recipe: recipe)
+        self?.myList.saveChanges()
+        print("Trailing Swipe", recipe.title ?? "Nah")
+      }
+      action.backgroundColor = .blue
+
+    }
+    return UISwipeActionsConfiguration(actions: [action])
   }
 }
 
@@ -124,6 +158,9 @@ extension RecipeListTableViewController {
 }
 
 extension RecipeListTableViewController {
+  
+  
+  
   @objc func loadMoreRecipes() {
     print("poop")
   }
@@ -137,6 +174,3 @@ extension RecipeListTableViewController {
 
 // TODO: - Add Star to mark favorites and add to a locally stored array of favorites.
 
-// TODO: - Update to include call to loadImage(url: )
-// The issue here is that `cell.defaultContentConfiguration()` does not have a UIImageView that is directly accessable. Will need a way to unwrap the url, pass it into the UIImageView.loadImage(url:), assign the resulting image as a named variable and then config.image = UIImage(named: variable)
-// See UIImage-Extension.swift for thoughts on replicating the previous extension, but providing a return value as a UIImage

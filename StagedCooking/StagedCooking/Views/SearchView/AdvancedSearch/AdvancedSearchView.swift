@@ -11,8 +11,10 @@ import UIKit
 class AdvancedSearchView: UIView {
   
   let searchStack = UIStackView()
-  let searchTextField = UITextField()
-  let searchButton = UIButton()
+  let searchTextField = CustomTextField()
+  let searchButton = ActionButton()
+  
+  let searchOption = AdvancedSearchOptionView()
   
   var minMaxProperties: MinMaxNutrients?
   
@@ -53,15 +55,19 @@ extension AdvancedSearchView {
     searchButton.translatesAutoresizingMaskIntoConstraints = false
     searchButton.configuration = .filled()
     searchButton.setTitle("Search", for: [])
+    
+    searchOption.translatesAutoresizingMaskIntoConstraints = false
+    
   }
   
   func layout() {
     searchStack.addArrangedSubview(searchTextField)
     searchStack.addArrangedSubview(searchButton)
+    searchStack.addSubview(searchOption)
     
     addSubview(searchStack)
     NSLayoutConstraint.activate([
-      searchStack.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
+      searchStack.topAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.topAnchor, multiplier: 1),
       trailingAnchor.constraint(equalToSystemSpacingAfter: searchStack.trailingAnchor, multiplier: 1),
       searchStack.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1)
     ])

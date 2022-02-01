@@ -13,4 +13,5 @@ import Foundation
 // |-> Color Theme
 // |-> Default Intolerances / Allergies
 // |-> App Icon
-// |->
+// |-> Default number of results min: 1, max: 100
+// |-> 

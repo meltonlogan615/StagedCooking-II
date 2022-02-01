@@ -13,7 +13,7 @@ struct Recipe: Decodable, Identifiable, Comparable, Hashable {
   var title: String?
   var servings: Int?
   var summary: String?
-  var extendedIngredients: [Ingredient]?
+  var extendedIngredients: [Ingredient?]?
   var instructions: String?
   var analyzedInstructions: [Step]?
 

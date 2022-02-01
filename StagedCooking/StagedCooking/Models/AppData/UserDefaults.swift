@@ -15,11 +15,11 @@ struct MyList {
   static var viewedRecipes = [[String: String]]()
   static var searchHistory = [String]() // perhaps used later as part of an autocomplete in search
   
-  mutating func setFavorites(recipe: Recipe) {
+  mutating func addToFavorites(recipe: Recipe) {
     MyList.favoriteRecipes.append(recipe)
   }
   
-  mutating func setSaved(recipe: Recipe) {
+  mutating func addToSaved(recipe: Recipe) {
     MyList.savedRecipes.append(recipe)
   }
   

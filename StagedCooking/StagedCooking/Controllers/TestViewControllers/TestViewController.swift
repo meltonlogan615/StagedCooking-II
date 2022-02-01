@@ -10,12 +10,13 @@ import UIKit
 
 class TestViewController: UIViewController {
   
-  let testView = CellForTableView()
+  let testView = AdvancedSearchOptionView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     style()
     layout()
+    view.backgroundColor = .black
   }
 }
 

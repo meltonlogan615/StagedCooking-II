@@ -42,7 +42,7 @@ enum AdvancedSearchProperties {
 //var sort: String? //:  calories  The strategy to sort recipes by. See a full list of supported sorting options.
 //var sortDirection: String? //  asc  The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).
 
-// MARK: - Stepper / TextField Values (Int)
+// MARK: - Stepper / Slider / TextField Values (Int)
 //var maxReadyTime: Int? //  20  The maximum time in minutes it should take to prepare and cook the recipe.
 //var recipeBoxId: Int? //  2468  The id of the recipe box to which the search should be limited to.
 //var minCarbs: Int? //  10  The minimum amount of carbohydrates in grams the recipe must have.

@@ -20,6 +20,14 @@ class DataProvider  {
     }
   }
   
+//  func getMoreRecipes<T: Decodable>(for: String, completion: @escaping (Result<T, Error>) -> Void) {
+//    let enpoint = EndPoints()
+//    let moreRecipes = EndPoints.getMore(newOffset: e, searched: <#T##String#>)
+//    networkDataFlow.getData(for: moreRecipes.endpointURL) { (result: Result<T, Error>) in
+//      completion(result)
+//    }
+//  }
+  
   func getRecipeByID<T: Decodable>(for: Int, completion: @escaping (Result<T, Error>) -> Void) {
     let recipeByIDEndpoint = EndPoints.getRecipeByID(forID: SearchedTerm.requestedID)
     networkDataFlow.getData(for: recipeByIDEndpoint.endpointForID)  { (result: Result<T, Error>) in

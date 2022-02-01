@@ -9,8 +9,8 @@ struct EndPoints {
   private let baseURL = "https://api.spoonacular.com/recipes/"
   private var searchType = "complexSearch/"
   private let apiKey = "eeb88c9f7c4747c8837d51ea1c5e8f52"
-  private var limit = 10
   private var offset = 0
+  private var limit = 10
   private var recipeID = SearchedTerm.requestedID
   private var query = SearchedTerm.searched
 }
@@ -29,7 +29,7 @@ extension EndPoints {
 // Extension to build URL for Showing Recipe by ID
 extension EndPoints {
   var endpointForID: URL {
-    let idURL = URL(string: "\(baseURL)\(recipeID)/information/?apiKey=\(apiKey)&includeNutrition=false")
+    let idURL = URL(string: "\(baseURL)\(recipeID)/information?apiKey=\(apiKey)&includeNutrition=false")
     guard let idURL = idURL else {
       preconditionFailure("Invalid URL: \(String(describing: idURL))")
     }
@@ -53,9 +53,9 @@ extension EndPoints {
     return EndPoints(recipeID: SearchedTerm.requestedID)
   }
   
-//  static func loadMore(newOffset: Int, newLimit: Int) -> EndPoints {
-//    EndPoints.offset = EndPoints.limit
-//    return EndPoints()
+//  static func getMore(newOffset: Int, searched: String) -> EndPoints {
+//    let enpoint = EndPoints.self
+//    return EndPoints(offset: (enpoint.offset + 10))
 //  }
 }
 

@@ -14,20 +14,18 @@ class StagedCardView: UIView {
   let cardNumberLabel = UILabel()
   let ingredientLine = IngredientLineView()
   
-  var recipeName = String()
-  var cardCounter = Int()
-  var ingredientValues = [Int]()
-  var ingredientUnit = String()
-  var ingredient = String()
-  var ingredients = [Ingredient]()
+//  var recipeName = String()
+//  var cardCounter = Int()
+//  var ingredientValues = [Int]()
+//  var ingredientUnit = String()
+//  var ingredient = String()
+//  var ingredients = [Ingredient]()
   
-//  let recipeName = "Bacon"
-//  let cardCounter = 1
-//  let ingredientValues = [1, 2, 3, 4]
-//  let ingredientUnit = "cups"
-//  let ingredients = ["flour", "milk", "oranges", "rice"]
-
-
+  let recipeName = "Bacon"
+  let cardCounter = 1
+  let ingredientValues = [1, 2, 3, 4]
+  let ingredientUnit = "cups"
+  let ingredients = ["flour", "milk", "oranges", "rice"]
   
   let stepLabel = UILabel()
   let testText = DummyData()
@@ -83,7 +81,7 @@ extension StagedCardView {
       ingredientLine.translatesAutoresizingMaskIntoConstraints = false
       cardStackView.addArrangedSubview(ingredientLine)
       ingredientLine.amountValueLabel.text = "\(self.ingredientValues[i])  "
-      ingredientLine.amountUnitLabel.text = "\(self.ingredientUnit):"
+      ingredientLine.amountUnitLabel.text = "\(self.ingredientUnit)"
       ingredientLine.ingredientLabel.text = "\(self.ingredients[i])"
     }
     

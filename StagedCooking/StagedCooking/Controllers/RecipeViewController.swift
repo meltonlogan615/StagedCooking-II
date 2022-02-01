@@ -105,13 +105,14 @@ extension RecipeViewController: RecipeByID {
         case .success(let model):
           DispatchQueue.main.async {
             self.recipe = model as Recipe
+            print(self.recipe)
             self.propertyDictionary = ParseObjectProperties.iterateObject(self.recipe)
             myList.addToViewed(recipeDictionary: self.propertyDictionary)
             myList.saveChanges()
             self.setAttributeValues()
           }
         case .failure(let error):
-          print(error)
+          print("ingredient error:", error)
       }
     }
   }
@@ -121,12 +122,9 @@ extension RecipeViewController: RecipeByID {
       guard let self = self else { return }
       switch ingredientResult {
         case .success(let model):
-//          print(model)
           DispatchQueue.main.async {
             self.ingredients = model as [Ingredient]
-            print(self.ingredients)
             self.ingredientDictionary = ParseObjectProperties.iterateObject(self.ingredients)
-            print(self.ingredientDictionary)
           }
         case .failure(let error):
           print(error)
@@ -169,7 +167,6 @@ extension RecipeViewController {
       if isVegan == "true" {
         ingredientsView.veganLabel.text = "Vegan"
       }
-      
     }
     
     if let isDairyFree = propertyDictionary["diaryFree"] {
@@ -181,7 +178,6 @@ extension RecipeViewController {
     if let summary = propertyDictionary["summary"] {
       ingredientsView.summary.attributedText = summary.htmlAttributedString()
     }
-    
   }
 }
 
