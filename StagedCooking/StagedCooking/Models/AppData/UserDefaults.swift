@@ -15,30 +15,31 @@ struct MyList {
   static var viewedRecipes = [[String: String]]()
   static var searchHistory = [String]() // perhaps used later as part of an autocomplete in search
   
-  mutating func addToFavorites(recipe: Recipe) {
-    MyList.favoriteRecipes.append(recipe)
+  static func addToFavorites(recipe: Recipe) {
+//    MyList.favoriteRecipes.append(recipe)
+    MyList.favoriteRecipes.insert(recipe, at: 0)
   }
   
-  mutating func addToSaved(recipe: Recipe) {
+  static func addToSaved(recipe: Recipe) {
     MyList.savedRecipes.append(recipe)
   }
   
-  mutating func addToViewed(recipeDictionary: [String: String]) {
+  static func addToViewed(recipeDictionary: [String: String]) {
     MyList.viewedRecipes.insert(recipeDictionary, at: 0)
   }
   
-  mutating func addToSearchHistory(searchTerm: String) {
+  static func addToSearchHistory(searchTerm: String) {
     MyList.searchHistory.insert(searchTerm, at: 0)
   }
   
-  func saveChanges() {
+  static func saveChanges() {
     MyList.defaults.set(MyList.favoriteRecipes, forKey: "favorites")
     MyList.defaults.set(MyList.savedRecipes, forKey: "saved")
     MyList.defaults.set(MyList.viewedRecipes, forKey: "viewed")
     MyList.defaults.set(MyList.searchHistory, forKey: "history")
   }
   
-  func loadData() {
+  static func loadData() {
     MyList.favoriteRecipes = MyList.defaults.object(forKey: "favorites") as? [Recipe] ?? [Recipe]()
     MyList.savedRecipes = MyList.defaults.object(forKey: "saved") as? [Recipe] ?? [Recipe]()
     MyList.viewedRecipes = MyList.defaults.object(forKey: "viewed") as? [[String: String]] ?? [[String: String]]()

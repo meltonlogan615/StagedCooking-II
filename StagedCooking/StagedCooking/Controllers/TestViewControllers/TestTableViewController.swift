@@ -10,6 +10,8 @@ import UIKit
 class TestTableViewController: UIViewController {
   
   let testTable = UITableView()
+  var action = UIContextualAction()
+  
   
   let testObject = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple"]
   
@@ -47,7 +49,9 @@ extension TestTableViewController: UITableViewDataSource {
     let cell = testTable.dequeueReusableCell(withIdentifier: "testCell", for: indexPath) as! CellForTableView
     cell.image.image = UIImage(named: "steak")
     cell.titleLabel.text = testObject[indexPath.row]
-    cell.typeImage.image = UIImage(named: "appletv")
+    cell.dietLabel.text = testObject[indexPath.row]
+    cell.typeImage.image = UIImage(systemName: "appletv")
+    cell.accessoryType = .disclosureIndicator
     return cell
   }
 }
@@ -55,6 +59,26 @@ extension TestTableViewController: UITableViewDataSource {
 extension TestTableViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100
+  }
+  
+  func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    action = UIContextualAction(style: .normal, title: "Save") {_,_,_ in
+      print("Leading Swipe")
+    }
+    action.image = UIImage(systemName: "star")
+    action.backgroundColor = .orange
+    return UISwipeActionsConfiguration(actions: [action])
+  }
+  
+  
+  // From Trailing to Leading
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    action = UIContextualAction(style: .normal, title: "Favorite") {_,_,_ in
+      print("Trailing Swipe")
+    }
+    action.image = UIImage(systemName: "heart")
+    action.backgroundColor = .blue
+    return UISwipeActionsConfiguration(actions: [action])
   }
 }
 

@@ -101,13 +101,14 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
   // From Leading to Trailing
   override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     if let recipeToSave = self.model.results {
-      action = UIContextualAction(style: .normal, title: "Save") { [weak self] (action, view, completionHandler) in
+      action = UIContextualAction(style: .normal, title: "Save") { action, view, completionHandler in
         let recipe = recipeToSave[indexPath.row]
-//        self?.myList.addToSaved(recipe: recipe)
-//        self?.myList.saveChanges()
+        MyList.addToSaved(recipe: recipe)
+        MyList.saveChanges()
         print(String(describing: type(of: recipe)))
         print("Leading Swipe", recipe.title ?? "Nah")
       }
+      action.image = UIImage(systemName: "star")
       action.backgroundColor = .orange
     }
     return UISwipeActionsConfiguration(actions: [action])
@@ -116,12 +117,13 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
   // From Trailing to Leading
   override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     if let recipeToFave = model.results {
-      action = UIContextualAction(style: .normal, title: "Favorite") { [weak self] (action, view, completionHandler) in
+      action = UIContextualAction(style: .normal, title: "Favorite") { action, view, completionHandler in
         let recipe = recipeToFave[indexPath.row]
-//        self?.myList.addToFavorites(recipe: recipe)
-//        self?.myList.saveChanges()
+        MyList.addToFavorites(recipe: recipe)
+        MyList.saveChanges()
         print("Trailing Swipe", recipe.title ?? "Nah")
       }
+      action.image = UIImage(systemName: "heart")
       action.backgroundColor = .blue
 
     }

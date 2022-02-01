@@ -14,7 +14,7 @@ class SearchHistoryViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    myHistory.loadData()
+    MyList.loadData()
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "historyCell")
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(dismissView))
     style()

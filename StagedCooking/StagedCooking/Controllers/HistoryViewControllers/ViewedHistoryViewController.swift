@@ -23,7 +23,7 @@ class ViewedHistoryViewController: UITableViewController {
     super.viewDidLoad()
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "viewedRecipe")
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(dismissView))
-    myList.loadData()
+    MyList.loadData()
     print( MyList.viewedRecipes)
   }
   
