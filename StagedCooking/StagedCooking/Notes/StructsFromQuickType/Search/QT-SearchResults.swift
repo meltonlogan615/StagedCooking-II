@@ -16,7 +16,7 @@ struct QTParams: Decodable {
 }
 
 // MARK: - Result
-struct QTResult: Codable {
+struct QTResult: Codable, Identifiable {
   let id: Int
   let title: String
   let calories: Int

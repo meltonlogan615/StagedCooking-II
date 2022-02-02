@@ -42,7 +42,7 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
   }
   
   func loadRecipes(for: String) {
-    dataprovider.getRecipes(for: SearchedTerm.searched) { [weak self] (foodResult: Result<Response, Error>) in
+    dataprovider.getRecipes(for: MyList.searched) { [weak self] (foodResult: Result<Response, Error>) in
       guard let self = self else { return }
       switch foodResult {
         case .success(let model):
@@ -90,7 +90,7 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     guard let selectedID = (model.results?[indexPath.row].id) else { return }
     guard let selectedTitle = (model.results?[indexPath.row].title) else { return }
     let recipeVC = RecipeViewController()
-    SearchedTerm.requestedID = selectedID
+    MyList.requestedID = selectedID
     recipeVC.recipe = selected
     recipeVC.title = selectedTitle
     recipeVC.recipeID = selectedID
@@ -160,9 +160,6 @@ extension RecipeListTableViewController {
 }
 
 extension RecipeListTableViewController {
-  
-  
-  
   @objc func loadMoreRecipes() {
     print("poop")
   }

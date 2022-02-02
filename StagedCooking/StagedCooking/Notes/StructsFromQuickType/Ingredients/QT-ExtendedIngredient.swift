@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct QTExtendedIngredient: Codable {
+// Is the DataType passed into a 
+
+struct QTExtendedIngredient: Codable, Identifiable {
   var aisle: String
   var amount: Double
   var consitency: Consitency

@@ -54,7 +54,7 @@ extension SearchHistoryViewController {
     let listVC = RecipeListTableViewController()
     listVC.searchedRecipe = searched
     if let query = searched.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-      SearchedTerm.searched = query
+      MyList.searched = query
     }
     listVC.leftBarButtonText = "History"
     let navigationController = UINavigationController(rootViewController: listVC)

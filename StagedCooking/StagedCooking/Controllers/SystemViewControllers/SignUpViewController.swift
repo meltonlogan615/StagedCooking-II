@@ -37,14 +37,22 @@ extension SignUpViewController {
 
 extension SignUpViewController {
   func addButtonActions() {
-    signUpView.signUpButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
+    signUpView.signUpButton.addTarget(self, action: #selector(signUpTapped), for: .primaryActionTriggered)
+    signUpView.signInWithAppleButton.addTarget(self, action: #selector(appleSignUpTapped), for: .primaryActionTriggered)
   }
   
-  @objc func signInTapped(_ sender: UIButton) {
+  @objc func signUpTapped(_ sender: UIButton) {
     let logInVC = LogInViewController()
     let navigationController = UINavigationController(rootViewController: logInVC)
     navigationController.modalPresentationStyle = .fullScreen
     navigationController.modalTransitionStyle = .crossDissolve
     present(navigationController, animated: true)
+  }
+  
+  @objc func appleSignUpTapped(_ sender: UIButton) {
+    let searchVC = SearchViewController()
+    searchVC.modalPresentationStyle = .fullScreen
+    searchVC.modalTransitionStyle = .crossDissolve
+    present(searchVC, animated: true, completion: nil)
   }
 }

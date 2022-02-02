@@ -8,6 +8,10 @@
 import Foundation
 
 struct MyList {
+  static var searched = ""
+  static var requestedID = 0
+  static var selectedRecipe = Recipe()
+  
   static var isLoggedIn = true
   static var defaults = UserDefaults.standard
   static var favoriteRecipes = [Recipe]()

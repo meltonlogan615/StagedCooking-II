@@ -100,7 +100,7 @@ extension SearchViewController {
       MyList.searchHistory.insert(searched, at: 0)
       MyList.defaults.set(MyList.searchHistory, forKey: "history")
       if let query = searched.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-        SearchedTerm.searched = query
+        MyList.searched = query
       }
       let navigationController = UINavigationController(rootViewController: listVC)
       navigationController.modalTransitionStyle = .flipHorizontal

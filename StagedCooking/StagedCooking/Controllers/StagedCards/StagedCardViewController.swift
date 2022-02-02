@@ -26,7 +26,6 @@ class StagedCardViewController: UIViewController {
     ingredientLine.amountUnitLabel.text = ingredientUnit
     ingredientLine.ingredientLabel.text = ingredients
     super.init(nibName: nil, bundle: nil)
-    print(cardCounter)
   }
   
 

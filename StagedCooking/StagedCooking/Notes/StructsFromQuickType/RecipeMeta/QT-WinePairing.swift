@@ -15,7 +15,7 @@ struct QTWinePairing: Codable {
 }
 
 // MARK: - ProductMatch
-struct QTProductMatch: Codable {
+struct QTProductMatch: Codable, Identifiable {
   var id: Int
   var title, productMatchDescription, price: String
   var imageURL: String

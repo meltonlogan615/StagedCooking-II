@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QTRecipe: Decodable {
+struct QTRecipe: Decodable, Identifiable {
   var id: Int
   var title: String
   var image: String

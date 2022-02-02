@@ -14,7 +14,7 @@ class DataProvider  {
   private let networkDataFlow = NetworkDataFlow()
   
   func getRecipes<T: Decodable>(for: String, completion: @escaping (Result<T, Error>) -> Void) {
-    let recipeEndpoint = EndPoints.getFood(for: SearchedTerm.searched)
+    let recipeEndpoint = EndPoints.getFood(for: MyList.searched)
     networkDataFlow.getData(for: recipeEndpoint.endpointURL) { (result: Result<T, Error>) in
       completion(result)
     }
@@ -29,14 +29,14 @@ class DataProvider  {
 //  }
   
   func getRecipeByID<T: Decodable>(for: Int, completion: @escaping (Result<T, Error>) -> Void) {
-    let recipeByIDEndpoint = EndPoints.getRecipeByID(forID: SearchedTerm.requestedID)
+    let recipeByIDEndpoint = EndPoints.getRecipeByID(forID: MyList.requestedID)
     networkDataFlow.getData(for: recipeByIDEndpoint.endpointForID)  { (result: Result<T, Error>) in
       completion(result)
     }
   }
   
   func getIngredientsByID<T: Decodable>(for: Int, completion: @escaping (Result<T, Error>) -> Void) {
-    let ingredientByIDEndpoint = EndPoints.getIngredientsByID(forID: SearchedTerm.requestedID)
+    let ingredientByIDEndpoint = EndPoints.getIngredientsByID(forID: MyList.requestedID)
     networkDataFlow.getData(for: ingredientByIDEndpoint.endpointForID) { (result: Result<T, Error>) in
       completion(result)
     }

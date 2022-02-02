@@ -8,7 +8,7 @@
 import Foundation
 // returned info from https://api.spoonacular.com/food/ingredients/9266/information?amount=1
 // MARK: - Welcome
-struct QTIngredientInfo: Codable {
+struct QTIngredientInfo: Codable, Identifiable {
   var id: Int
   var original, originalName, name, nameClean: String
   var amount: Int

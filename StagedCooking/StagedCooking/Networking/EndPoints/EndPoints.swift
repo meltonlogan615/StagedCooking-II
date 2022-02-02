@@ -11,8 +11,8 @@ struct EndPoints {
   private let apiKey = "eeb88c9f7c4747c8837d51ea1c5e8f52"
   private var offset = 0
   private var limit = 10
-  private var recipeID = SearchedTerm.requestedID
-  private var query = SearchedTerm.searched
+  private var recipeID = MyList.requestedID
+  private var query = MyList.searched
 }
 
 // Extension to build URL for Recipe Search
@@ -41,16 +41,16 @@ extension EndPoints {
   
 // Method to build URL for Recipe Search, passing in entered text
   static func getFood(for searched: String) -> EndPoints {
-    return EndPoints(query: SearchedTerm.searched)
+    return EndPoints(query: MyList.searched)
   }
   
 // Method to build URL for Showing Recipe by ID, passing in the ID for the selected recipe
   static func getRecipeByID(forID: Int) -> EndPoints {
-    return EndPoints(recipeID: SearchedTerm.requestedID)
+    return EndPoints(recipeID: MyList.requestedID)
   }
   
   static func getIngredientsByID(forID: Int) -> EndPoints {
-    return EndPoints(recipeID: SearchedTerm.requestedID)
+    return EndPoints(recipeID: MyList.requestedID)
   }
   
 //  static func getMore(newOffset: Int, searched: String) -> EndPoints {

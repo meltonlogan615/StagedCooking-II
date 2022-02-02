@@ -44,6 +44,7 @@ extension LogInViewController {
 extension LogInViewController {
   func addButtonActions() {
     logInView.logInButton.addTarget(self, action: #selector(logInTapped), for: .primaryActionTriggered)
+    logInView.signInWithAppleButton.addTarget(self, action: #selector(appleSignInTapped), for: .primaryActionTriggered)
   }
   
   @objc func logInTapped(_ sender: UIButton) {
@@ -52,6 +53,13 @@ extension LogInViewController {
     navigationController.modalPresentationStyle = .fullScreen
     navigationController.modalTransitionStyle = .crossDissolve
     present(navigationController, animated: true)
+  }
+  
+  @objc func appleSignInTapped(_ sender: UIButton) {
+    let searchVC = SearchViewController()
+    searchVC.modalPresentationStyle = .fullScreen
+    searchVC.modalTransitionStyle = .crossDissolve
+    present(searchVC, animated: true, completion: nil)
   }
 }
 

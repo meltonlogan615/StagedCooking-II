@@ -90,7 +90,6 @@ extension RecipeViewController {
     stagesVC.recipe = self.recipe
     stagesVC.ingredientsTest = self.ingredients
     navigationController?.pushViewController(stagesVC, animated: true)
-    print("tapped")
   }
 }
 
@@ -99,7 +98,6 @@ extension RecipeViewController {
 extension RecipeViewController: RecipeByID {
   func loadRecipeByID(for chosenID: Int) {
     dataprovider.getRecipeByID(for: chosenID) { [weak self] (foodResult: Result<Recipe, Error>) in
-      var myList = MyList()
       guard let self = self else { return }
       switch foodResult {
         case .success(let model):
