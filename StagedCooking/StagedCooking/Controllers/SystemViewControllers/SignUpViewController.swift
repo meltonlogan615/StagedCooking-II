@@ -13,6 +13,7 @@ class SignUpViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    accessibilityLabel = "Sign Up for Staged Cooking"
     style()
     layout()
     addButtonActions()

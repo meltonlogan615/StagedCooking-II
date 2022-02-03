@@ -32,6 +32,7 @@ class IngredientLineView: UIView {
   
   convenience init(recipeName: String?, amountValue: String?, amountUnit: String?, ingredientName: String?) {
     self.init()
+    self.isAccessibilityElement = true
     self.recipeName = recipeName
     self.amountValue = amountValue
     self.amountUnit = amountUnit

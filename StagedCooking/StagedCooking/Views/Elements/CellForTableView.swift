@@ -25,6 +25,7 @@ class CellForTableView: UITableViewCell {
     label.translatesAutoresizingMaskIntoConstraints = false
     label.numberOfLines = 0
     label.lineBreakMode = .byWordWrapping
+    label.font = UIFont.preferredFont(forTextStyle: .headline)
     return label
   }()
   
@@ -47,7 +48,8 @@ class CellForTableView: UITableViewCell {
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+    self.isAccessibilityElement = true
+    
 // MARK: - Adding to Cell
     self.contentView.addSubview(image)
     self.contentView.addSubview(titleLabel)

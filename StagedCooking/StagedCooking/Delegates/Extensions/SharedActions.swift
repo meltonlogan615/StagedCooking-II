@@ -12,4 +12,8 @@ extension UIViewController {
   @objc func dismissView(_ sender: UIBarButtonItem) {
     self.dismiss(animated: true)
   }
+  
+  @objc func editList(_ sender: UIBarButtonItem) {
+    print("edit mode activated")
+  }
 }

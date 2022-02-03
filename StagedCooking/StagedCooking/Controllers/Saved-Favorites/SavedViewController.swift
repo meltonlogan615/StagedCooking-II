@@ -36,6 +36,8 @@ extension SavedViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "savedCell", for: indexPath) as! CellForTableView
     cell.textLabel?.text = saved[indexPath.row].title
+    cell.isAccessibilityElement = true
+    cell.accessibilityLabel = saved[indexPath.row].title
     return cell
   }
 }

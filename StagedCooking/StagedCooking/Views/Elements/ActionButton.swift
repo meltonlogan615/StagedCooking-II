@@ -11,6 +11,7 @@ import UIKit
 class ActionButton: UIButton {
   override init(frame: CGRect) {
     super.init(frame: frame)
+    self.isAccessibilityElement = true
     style()
   }
   

@@ -17,6 +17,13 @@ class SearchHistoryViewController: UITableViewController {
     MyList.loadData()
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "historyCell")
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(dismissView))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editList))
+
+    self.title = "Search History"
+    
+    self.isAccessibilityElement = true
+    self.accessibilityLabel = "Searhc History"
+    
     style()
     layout()
   }
@@ -28,8 +35,13 @@ class SearchHistoryViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
     var config = cell.defaultContentConfiguration()
-    config.text = MyList.searchHistory[indexPath.row]
+    let text = MyList.searchHistory[indexPath.row]
+    config.text = text
     cell.contentConfiguration = config
+    
+    cell.isAccessibilityElement = true
+    cell.accessibilityLabel = text
+    
     return cell
   }
   

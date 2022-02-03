@@ -17,6 +17,7 @@ class LogInViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    accessibilityLabel = "Log in to Staged Cooking"
     style()
     layout()
     addButtonActions()

@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.accessibilityLabel = "Settings"
     style()
     layout()
   }

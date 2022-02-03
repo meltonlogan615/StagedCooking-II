@@ -36,7 +36,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController {
   private func style() {
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.image = UIImage(systemName: "airpods.gen3")?.applyingSymbolConfiguration(.preferringMulticolor())
+    imageView.image = UIImage(systemName: "airpods.gen3")
     imageView.contentMode = .scaleAspectFit
     searchView.translatesAutoresizingMaskIntoConstraints = false
     

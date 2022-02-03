@@ -12,6 +12,7 @@ class SignInWithAppleButton: UIButton {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
+    self.isAccessibilityElement = true
     style()
   }
   
@@ -25,11 +26,11 @@ extension SignInWithAppleButton {
     translatesAutoresizingMaskIntoConstraints = false
     configuration = .borderedTinted()
     configuration?.buttonSize = .medium
-    configuration?.imagePadding = 8
-    configuration?.image = UIImage(systemName: "applelogo")
     backgroundColor = .black
     tintColor = .white
     setTitle("Sign in With Apple", for: [])
+    configuration?.image = UIImage(systemName: "applelogo")
+    configuration?.imagePadding = 8
     layer.cornerRadius = 8
     clipsToBounds = true
   }

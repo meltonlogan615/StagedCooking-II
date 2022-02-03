@@ -32,7 +32,7 @@ class StagedCardView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-
+    self.isAccessibilityElement = true
     style()
     layout()
   }
@@ -51,8 +51,11 @@ extension StagedCardView {
     
     cardNumberLabel.translatesAutoresizingMaskIntoConstraints = false
     cardNumberLabel.font = .preferredFont(forTextStyle: .title1)
-    cardNumberLabel.text = ("\(recipeName) Stage \(cardCounter)")
+    let text = "\(recipeName) Stage \(cardCounter)"
+    cardNumberLabel.text = text
     cardNumberLabel.textAlignment = .center
+    cardNumberLabel.isAccessibilityElement = true
+    cardNumberLabel.accessibilityLabel = text
     
     cardStackView.translatesAutoresizingMaskIntoConstraints = false
     cardStackView.axis = .vertical
@@ -79,10 +82,21 @@ extension StagedCardView {
     for i in 0 ... 2 {
       let ingredientLine = IngredientLineView()
       ingredientLine.translatesAutoresizingMaskIntoConstraints = false
+      ingredientLine.isAccessibilityElement = true
       cardStackView.addArrangedSubview(ingredientLine)
-      ingredientLine.amountValueLabel.text = "\(self.ingredientValues[i])  "
-      ingredientLine.amountUnitLabel.text = "\(self.ingredientUnit)"
-      ingredientLine.ingredientLabel.text = "\(self.ingredients[i])"
+      let valueText = "\(self.ingredientValues[i])", unitText = "\(self.ingredientUnit)", ingredientText = "\(self.ingredients[i])"
+      
+      ingredientLine.amountValueLabel.text = valueText
+      ingredientLine.amountValueLabel.isAccessibilityElement = true
+      ingredientLine.amountValueLabel.accessibilityLabel = valueText
+      
+      ingredientLine.amountUnitLabel.text = unitText
+      ingredientLine.amountUnitLabel.isAccessibilityElement = true
+      ingredientLine.amountUnitLabel.accessibilityLabel = unitText
+      
+      ingredientLine.ingredientLabel.text = ingredientText
+      ingredientLine.ingredientLabel.isAccessibilityElement = true
+      ingredientLine.ingredientLabel.accessibilityLabel = ingredientText
     }
     
     cardStackView.addArrangedSubview(stepLabel)

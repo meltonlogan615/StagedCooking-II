@@ -23,7 +23,6 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
   
   var searchedRecipe = String()
   var leftBarButtonText = String()
-  var loadMoreButton = UIButton(type: .system)
   
   var myList = MyList()
   
@@ -61,8 +60,9 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
   }
   
   // MARK: - Table Setup
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let cellCount = model.results?.count else { return 2 }
+    guard let cellCount = model.results?.count  else { return 2 }
     return cellCount
   }
   
@@ -71,6 +71,7 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     if let recipeItems = model.results {
       if let receipeTitle = recipeItems[indexPath.row].title {
         cell.titleLabel.text = receipeTitle
+        cell.accessibilityLabel = "Recipe for \(receipeTitle)"
       }
       if let recipeImage = recipeItems[indexPath.row].image {
         cell.image.loadImage(url: recipeImage)
@@ -80,8 +81,28 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     return cell
   }
   
+  override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    let footerView = UIView()
+    footerView.backgroundColor = view.backgroundColor
+    footerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80)
+    
+    let button = UIButton(type: .system)
+    button.frame = CGRect(x: 0, y: 0, width: footerView.frame.width, height: 50)
+    button.setTitle("Load More Recipes", for: .normal)
+    button.accessibilityLabel = "Load more Recipes"
+    button.setTitleColor(.blue, for: [])
+    button.isUserInteractionEnabled = true
+    button.addTarget(self, action: #selector(loadMoreRecipes), for: .primaryActionTriggered)
+    footerView.addSubview(button)
+    return footerView
+  }
+  
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 100
+    return 80
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return 80
   }
   
   // MARK: - DID SELECT ROW AT
@@ -134,15 +155,10 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
 extension RecipeListTableViewController {
   private func style() {
     recipesTableView.translatesAutoresizingMaskIntoConstraints = false
-    
-    loadMoreButton.translatesAutoresizingMaskIntoConstraints = false
-    loadMoreButton.setTitle("Load More", for: [])
-    loadMoreButton.addTarget(self, action: #selector(loadMoreRecipes), for: .primaryActionTriggered)
-  }
+    }
   
   private func layout() {
     view.addSubview(recipesTableView)
-    view.addSubview(loadMoreButton)
     
     NSLayoutConstraint.activate([
       recipesTableView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1),
@@ -150,12 +166,6 @@ extension RecipeListTableViewController {
       recipesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
     ])
     
-    NSLayoutConstraint.activate([
-      loadMoreButton.widthAnchor.constraint(equalTo: view.widthAnchor),
-      view.trailingAnchor.constraint(equalToSystemSpacingAfter: loadMoreButton.trailingAnchor, multiplier: 1),
-      view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: loadMoreButton.bottomAnchor, multiplier: 1),
-      loadMoreButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1)
-    ])
   }
 }
 

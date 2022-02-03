@@ -15,18 +15,18 @@ class RecipeViewController: UIViewController {
   let testData = DummyData()
   let dataprovider = DataProvider()
   
+  var recipe = Recipe()
+  var ingredients = [Ingredient]()
+  var recipeID = 0
+  var propertyDictionary = [String: String]()
+  var ingredientDictionary = [String: String]()
+  
   let label = UILabel()
   let stackView = UIStackView()
   let recipeView = RecipeHeaderView()
   let ingredientsView = RecipeMetaDataView()
   let searchView = SearchView()
   let startCookingButton = UIButton(type: .roundedRect)
-  
-  var recipe = Recipe()
-  var ingredients = [Ingredient]()
-  var recipeID = 0
-  var propertyDictionary = [String: String]()
-  var ingredientDictionary = [String: String]()
   
   override func viewWillAppear(_ animated: Bool) {
     loadRecipeByID(for: recipeID)
@@ -139,42 +139,51 @@ extension RecipeViewController {
     }
     if let image = propertyDictionary["image"] {
       recipeView.imageView.loadImage(url: image)
+      recipeView.imageView.isAccessibilityElement = true
+      recipeView.accessibilityLabel = "Image of \(String(describing: recipe.title))"
     }
     
     if let servings = propertyDictionary["servings"] {
       ingredientsView.servingsLabel.text = "Servings: \(servings)"
+      ingredientsView.accessibilityLabel = "Servings: \(servings)"
     }
     
     if let isCheap = propertyDictionary["cheap"] {
       if isCheap == "true" {
         ingredientsView.cheapLabel.text = "Cheap Eats"
+        ingredientsView.accessibilityLabel =  "Cheap Eats"
       }
     }
     
     if let readyInMinutes = propertyDictionary["readyInMinutes"] {
       ingredientsView.readyInMinutesLabel.text = "Ready in \(readyInMinutes) minutes"
+      ingredientsView.accessibilityLabel = "Ready in \(readyInMinutes) minutes"
     }
 
     if let isVegetarian = propertyDictionary["vegetarian"] {
       if isVegetarian == "true" {
         ingredientsView.vegetarianLabel.text = "Vegetarian"
+        ingredientsView.accessibilityLabel = "Vegerarian"
       }
     }
     
     if let isVegan = propertyDictionary["vegan"] {
       if isVegan == "true" {
         ingredientsView.veganLabel.text = "Vegan"
+        ingredientsView.accessibilityLabel = "Vegan"
       }
     }
     
     if let isDairyFree = propertyDictionary["diaryFree"] {
       if isDairyFree == "true" {
         ingredientsView.diaryFreeLabel.text = "Dairy Free"
+        ingredientsView.accessibilityLabel = "Dairy Free"
       }
     }
     
     if let summary = propertyDictionary["summary"] {
       ingredientsView.summary.attributedText = summary.htmlAttributedString()
+      ingredientsView.accessibilityAttributedLabel = summary.htmlAttributedString()
     }
   }
 }

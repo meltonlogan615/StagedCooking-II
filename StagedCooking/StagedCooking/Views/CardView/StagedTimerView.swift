@@ -19,7 +19,8 @@ class StagedTimerView: UIView {
     
   override init(frame: CGRect) {
     super.init(frame: frame)
-    
+    self.isAccessibilityElement = true
+    self.accessibilityLabel = "Timer"
     style()
     layout()
   }
@@ -52,15 +53,22 @@ extension StagedTimerView {
     cancelButton.translatesAutoresizingMaskIntoConstraints = false
     cancelButton.setTitle("Cancel", for: [])
     cancelButton.center = CGPoint(x: 0.5, y: 0.5)
+    cancelButton.isAccessibilityElement = true
+    cancelButton.accessibilityLabel = "Cancel"
 
     startButton.translatesAutoresizingMaskIntoConstraints = false
     startButton.setTitle("Start", for: [])
     startButton.isHidden = false
     startButton.center = CGPoint(x: 0.5, y: 0.5)
+    startButton.isAccessibilityElement = true
+    startButton.accessibilityLabel = "Start"
     
     pauseButton.translatesAutoresizingMaskIntoConstraints = false
     pauseButton.setTitle("Pause", for: [])
     pauseButton.isHidden = true
+    pauseButton.isAccessibilityElement = true
+    pauseButton.accessibilityLabel = "Pause"
+
   }
   
   func layout() {

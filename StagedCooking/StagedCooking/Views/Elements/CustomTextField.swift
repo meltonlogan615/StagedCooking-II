@@ -11,7 +11,7 @@ import UIKit
 class CustomTextField: UITextField {
   override init(frame: CGRect) {
     super.init(frame: frame)
-    
+    self.isAccessibilityElement = true
     style()
   }
   

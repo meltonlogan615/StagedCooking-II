@@ -23,6 +23,10 @@ class ViewedHistoryViewController: UITableViewController {
     super.viewDidLoad()
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "viewedRecipe")
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(dismissView))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editList))
+    self.title = "Viewed History"
+    self.isAccessibilityElement = true
+    self.accessibilityLabel = "Viewd History"
     MyList.loadData()
     print( MyList.viewedRecipes)
   }
@@ -37,6 +41,10 @@ class ViewedHistoryViewController: UITableViewController {
     let value = MyList.viewedRecipes[indexPath.row]["title"]
     config.text = value
     cell.contentConfiguration = config
+    
+    cell.isAccessibilityElement = true
+    cell.accessibilityLabel = value
+    
     return cell
   }
   
@@ -76,6 +84,7 @@ extension ViewedHistoryViewController: RecipeByID {
           print(error)
       }
     }
-  }  }
+  }
+}
 
 

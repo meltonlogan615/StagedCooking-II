@@ -35,6 +35,10 @@ extension FavoritesViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as! CellForTableView
     cell.textLabel?.text = favorites[indexPath.row].title
+ 
+    cell.isAccessibilityElement = true
+    cell.accessibilityLabel = favorites[indexPath.row].title
+  
     return cell
   }
 }
