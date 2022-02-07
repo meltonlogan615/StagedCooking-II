@@ -23,9 +23,7 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
   
   var searchedRecipe = String()
   var leftBarButtonText = String()
-  
-  var myList = MyList()
-  
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     recipesTableView.register(CellForTableView.self, forCellReuseIdentifier: "recipeCell")
@@ -41,7 +39,7 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
   }
   
   func loadRecipes(for: String) {
-    dataprovider.getRecipes(for: MyList.searched) { [weak self] (foodResult: Result<Response, Error>) in
+    dataprovider.getRecipes(for: ChefDefault.searched) { [weak self] (foodResult: Result<Response, Error>) in
       guard let self = self else { return }
       switch foodResult {
         case .success(let model):
@@ -71,7 +69,6 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     if let recipeItems = model.results {
       if let receipeTitle = recipeItems[indexPath.row].title {
         cell.titleLabel.text = receipeTitle
-        cell.accessibilityLabel = "Recipe for \(receipeTitle)"
       }
       if let recipeImage = recipeItems[indexPath.row].image {
         cell.image.loadImage(url: recipeImage)
@@ -81,29 +78,10 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     return cell
   }
   
-  override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-    let footerView = UIView()
-    footerView.backgroundColor = view.backgroundColor
-    footerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80)
-    
-    let button = UIButton(type: .system)
-    button.frame = CGRect(x: 0, y: 0, width: footerView.frame.width, height: 50)
-    button.setTitle("Load More Recipes", for: .normal)
-    button.accessibilityLabel = "Load more Recipes"
-    button.setTitleColor(.blue, for: [])
-    button.isUserInteractionEnabled = true
-    button.addTarget(self, action: #selector(loadMoreRecipes), for: .primaryActionTriggered)
-    footerView.addSubview(button)
-    return footerView
-  }
-  
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 80
   }
   
-  override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    return 80
-  }
   
   // MARK: - DID SELECT ROW AT
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -111,7 +89,7 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     guard let selectedID = (model.results?[indexPath.row].id) else { return }
     guard let selectedTitle = (model.results?[indexPath.row].title) else { return }
     let recipeVC = RecipeViewController()
-    MyList.requestedID = selectedID
+    ChefDefault.requestedID = selectedID
     recipeVC.recipe = selected
     recipeVC.title = selectedTitle
     recipeVC.recipeID = selectedID
@@ -124,8 +102,8 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     if let recipeToSave = self.model.results {
       action = UIContextualAction(style: .normal, title: "Save") { action, view, completionHandler in
         let recipe = recipeToSave[indexPath.row]
-        MyList.addToSaved(recipe: recipe)
-        MyList.saveChanges()
+        ChefDefault.addToSaved(recipe: recipe)
+        ChefDefault.saveChanges()
         print(String(describing: type(of: recipe)))
         print("Leading Swipe", recipe.title ?? "Nah")
       }
@@ -140,12 +118,12 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     if let recipeToFave = model.results {
       action = UIContextualAction(style: .normal, title: "Favorite") { action, view, completionHandler in
         let recipe = recipeToFave[indexPath.row]
-        MyList.addToFavorites(recipe: recipe)
-        MyList.saveChanges()
+        ChefDefault.addToFavorites(recipe: recipe)
+        ChefDefault.saveChanges()
         print("Trailing Swipe", recipe.title ?? "Nah")
       }
       action.image = UIImage(systemName: "heart")
-      action.backgroundColor = .blue
+      action.backgroundColor = .systemPink
 
     }
     return UISwipeActionsConfiguration(actions: [action])

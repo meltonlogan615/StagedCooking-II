@@ -13,7 +13,7 @@ import UIKit
 
 class SavedViewController: UIViewController {
   
-  let saved = MyList.savedRecipes
+  let saved = ChefDefault.savedRecipes
   
   let savedTable = UITableView()
   let savedCell = CellForTableView()

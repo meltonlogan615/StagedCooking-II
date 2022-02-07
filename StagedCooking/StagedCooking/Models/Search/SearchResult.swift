@@ -10,9 +10,9 @@ import Foundation
 struct Response: Decodable {
   var results: [Recipe]?
   var baseUri: String?
-  var offset: Int?
-  var number: Int?
-  var totalResults: Int?
+  var number: Int? // total number of items to return from the Response (results.count =< number)
+  var offset: Int? // how many reults to move forward (results.count + offset)
+  var totalResults: Int? // total number of items in the Response
   var processingTimeMs: Int?
   var expires: Int?
   var isStale: Bool?

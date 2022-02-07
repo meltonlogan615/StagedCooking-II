@@ -14,29 +14,21 @@ class DataProvider  {
   private let networkDataFlow = NetworkDataFlow()
   
   func getRecipes<T: Decodable>(for: String, completion: @escaping (Result<T, Error>) -> Void) {
-    let recipeEndpoint = EndPoints.getFood(for: MyList.searched)
+    let recipeEndpoint = EndPoints.getFood(for: ChefDefault.searched)
     networkDataFlow.getData(for: recipeEndpoint.endpointURL) { (result: Result<T, Error>) in
       completion(result)
     }
   }
   
-//  func getMoreRecipes<T: Decodable>(for: String, completion: @escaping (Result<T, Error>) -> Void) {
-//    let enpoint = EndPoints()
-//    let moreRecipes = EndPoints.getMore(newOffset: e, searched: <#T##String#>)
-//    networkDataFlow.getData(for: moreRecipes.endpointURL) { (result: Result<T, Error>) in
-//      completion(result)
-//    }
-//  }
-  
   func getRecipeByID<T: Decodable>(for: Int, completion: @escaping (Result<T, Error>) -> Void) {
-    let recipeByIDEndpoint = EndPoints.getRecipeByID(forID: MyList.requestedID)
+    let recipeByIDEndpoint = EndPoints.getRecipeByID(forID: ChefDefault.requestedID)
     networkDataFlow.getData(for: recipeByIDEndpoint.endpointForID)  { (result: Result<T, Error>) in
       completion(result)
     }
   }
   
   func getIngredientsByID<T: Decodable>(for: Int, completion: @escaping (Result<T, Error>) -> Void) {
-    let ingredientByIDEndpoint = EndPoints.getIngredientsByID(forID: MyList.requestedID)
+    let ingredientByIDEndpoint = EndPoints.getIngredientsByID(forID: ChefDefault.requestedID)
     networkDataFlow.getData(for: ingredientByIDEndpoint.endpointForID) { (result: Result<T, Error>) in
       completion(result)
     }

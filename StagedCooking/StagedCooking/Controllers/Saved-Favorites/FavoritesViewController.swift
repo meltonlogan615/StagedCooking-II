@@ -12,7 +12,7 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
   
-  let favorites = MyList.favoriteRecipes
+  let favorites = ChefDefault.favoriteRecipes
   
   let favTable = UITableView()
   let favCell = CellForTableView()

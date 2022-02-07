@@ -10,7 +10,7 @@ import UIKit
 class ViewedHistoryViewController: UITableViewController {
   
   let dataprovider = DataProvider()
-  let myList = MyList()
+  let myList = ChefDefault()
   var viewedKeys = [Int]()
   
   var recipe = Recipe()
@@ -27,18 +27,18 @@ class ViewedHistoryViewController: UITableViewController {
     self.title = "Viewed History"
     self.isAccessibilityElement = true
     self.accessibilityLabel = "Viewd History"
-    MyList.loadData()
-    print( MyList.viewedRecipes)
+    ChefDefault.loadData()
+    print( ChefDefault.viewedRecipes)
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return MyList.viewedRecipes.count
+    return ChefDefault.viewedRecipes.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "viewedRecipe", for: indexPath)
     var config = cell.defaultContentConfiguration()
-    let value = MyList.viewedRecipes[indexPath.row]["title"]
+    let value = ChefDefault.viewedRecipes[indexPath.row]["title"]
     config.text = value
     cell.contentConfiguration = config
     

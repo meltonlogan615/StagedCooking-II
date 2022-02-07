@@ -75,7 +75,7 @@ extension SearchViewController {
     searchView.viewedHistoryButton.addTarget(self, action: #selector(viewedHistoryButtonTapped), for: .primaryActionTriggered)
     searchView.advancedSearchButton.addTarget(self, action: #selector(advancedSearchButtonTapped), for: .primaryActionTriggered)
     
-    if MyList.isLoggedIn == true {
+    if ChefDefault.isLoggedIn == true {
       searchView.searchHistoryButton.isHidden = false
       searchView.viewedHistoryButton.isHidden = false
     } else {
@@ -97,10 +97,10 @@ extension SearchViewController {
       return
     } else {
       listVC.searchedRecipe = searched
-      MyList.searchHistory.insert(searched, at: 0)
-      MyList.defaults.set(MyList.searchHistory, forKey: "history")
+      ChefDefault.searchHistory.insert(searched, at: 0)
+      ChefDefault.defaults.set(ChefDefault.searchHistory, forKey: "history")
       if let query = searched.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-        MyList.searched = query
+        ChefDefault.searched = query
       }
       let navigationController = UINavigationController(rootViewController: listVC)
       navigationController.modalTransitionStyle = .flipHorizontal

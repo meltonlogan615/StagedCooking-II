@@ -60,9 +60,10 @@
 		322A16392759EC26004D6268 /* CuisineTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322A16382759EC26004D6268 /* CuisineTypes.swift */; };
 		323DF559273E3CD80060FE43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323DF558273E3CD80060FE43 /* AppDelegate.swift */; };
 		323DF562273E3CD90060FE43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 323DF561273E3CD90060FE43 /* Assets.xcassets */; };
-		3264DFD32759F08D001F7240 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264DFD22759F08D001F7240 /* UserDefaults.swift */; };
+		3264DFD32759F08D001F7240 /* ChefDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3264DFD22759F08D001F7240 /* ChefDefault.swift */; };
 		3268A807274AC2F100D35BBD /* StagedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268A806274AC2F100D35BBD /* StagedCardView.swift */; };
 		3297B7C827AB19EC00757A48 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A3190627AAC1C40032816B /* Launch Screen.storyboard */; };
+		3297B7CD27ACE55A00757A48 /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3297B7CC27ACE55A00757A48 /* LoadMoreCell.swift */; };
 		32982048274C0D9A00971F99 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32982047274C0D9A00971F99 /* FavoritesViewController.swift */; };
 		3298204A274C0DA600971F99 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32982049274C0DA600971F99 /* SavedViewController.swift */; };
 		3298204E274C3B8300971F99 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3298204D274C3B8300971F99 /* UIImage-Extension.swift */; };
@@ -163,8 +164,9 @@
 		323DF555273E3CD80060FE43 /* StagedCooking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StagedCooking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		323DF558273E3CD80060FE43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		323DF561273E3CD90060FE43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3264DFD22759F08D001F7240 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		3264DFD22759F08D001F7240 /* ChefDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefDefault.swift; sourceTree = "<group>"; };
 		3268A806274AC2F100D35BBD /* StagedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedCardView.swift; sourceTree = "<group>"; };
+		3297B7CC27ACE55A00757A48 /* LoadMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
 		32982047274C0D9A00971F99 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		32982049274C0DA600971F99 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		3298204D274C3B8300971F99 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
@@ -303,7 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				321921C027973E120026EB74 /* testIngredients.json */,
-				3264DFD22759F08D001F7240 /* UserDefaults.swift */,
+				3264DFD22759F08D001F7240 /* ChefDefault.swift */,
 				321921BE2795E2A10026EB74 /* DummyData.swift */,
 				321921D2279A7CBE0026EB74 /* Animations.swift */,
 				321921D0279A7C670026EB74 /* CountdownTimer.swift */,
@@ -579,6 +581,7 @@
 				32CABD6027A120950071120F /* CustomTextField.swift */,
 				32CABD6227A1AB160071120F /* ActionButton.swift */,
 				32CABD6427A255A50071120F /* CellForTableView.swift */,
+				3297B7CC27ACE55A00757A48 /* LoadMoreCell.swift */,
 				32CABD6A27A258AC0071120F /* CellForCollectionView.swift */,
 			);
 			path = Elements;
@@ -722,7 +725,7 @@
 				321921CF279A6C930026EB74 /* StagedTimerViewController.swift in Sources */,
 				321921BF2795E2A10026EB74 /* DummyData.swift in Sources */,
 				321921CD279A6C510026EB74 /* StagedTimerView.swift in Sources */,
-				3264DFD32759F08D001F7240 /* UserDefaults.swift in Sources */,
+				3264DFD32759F08D001F7240 /* ChefDefault.swift in Sources */,
 				321921E0279D09B50026EB74 /* AdvancedSearch.swift in Sources */,
 				321921E3279D14820026EB74 /* AdvancedSearchOptionView.swift in Sources */,
 				32E62521273F2A98002E2EB0 /* JsonParser.swift in Sources */,
@@ -739,6 +742,7 @@
 				32A318E727A8F00A0032816B /* QT-ExtendedIngredient.swift in Sources */,
 				3227D003279EECCF00667F0F /* Settings-Notes.swift in Sources */,
 				32A318F827A8F5850032816B /* QT-DishTypes.swift in Sources */,
+				3297B7CD27ACE55A00757A48 /* LoadMoreCell.swift in Sources */,
 				32CABD6527A255A50071120F /* CellForTableView.swift in Sources */,
 				321921F3279DC6240026EB74 /* AdvancedSearchProperties.swift in Sources */,
 				32CABD6B27A258AC0071120F /* CellForCollectionView.swift in Sources */,

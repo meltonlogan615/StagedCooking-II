@@ -8,13 +8,13 @@ import UIKit
 
 class SearchHistoryViewController: UITableViewController {
   
-  let myHistory = MyList()
+  let myHistory = ChefDefault()
   
   var searched = String()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    MyList.loadData()
+    ChefDefault.loadData()
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "historyCell")
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(dismissView))
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editList))
@@ -29,13 +29,13 @@ class SearchHistoryViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return MyList.searchHistory.count
+    return ChefDefault.searchHistory.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
     var config = cell.defaultContentConfiguration()
-    let text = MyList.searchHistory[indexPath.row]
+    let text = ChefDefault.searchHistory[indexPath.row]
     config.text = text
     cell.contentConfiguration = config
     
@@ -46,7 +46,7 @@ class SearchHistoryViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    searchFromHistoryList(searched: MyList.searchHistory[indexPath.row])
+    searchFromHistoryList(searched: ChefDefault.searchHistory[indexPath.row])
   }
   
 }
@@ -66,7 +66,7 @@ extension SearchHistoryViewController {
     let listVC = RecipeListTableViewController()
     listVC.searchedRecipe = searched
     if let query = searched.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-      MyList.searched = query
+      ChefDefault.searched = query
     }
     listVC.leftBarButtonText = "History"
     let navigationController = UINavigationController(rootViewController: listVC)

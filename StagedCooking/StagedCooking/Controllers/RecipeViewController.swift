@@ -105,8 +105,8 @@ extension RecipeViewController: RecipeByID {
             self.recipe = model as Recipe
             print(self.recipe)
             self.propertyDictionary = ParseObjectProperties.iterateObject(self.recipe)
-            MyList.addToViewed(recipeDictionary: self.propertyDictionary)
-            MyList.saveChanges()
+            ChefDefault.addToViewed(recipeDictionary: self.propertyDictionary)
+            ChefDefault.saveChanges()
             self.setAttributeValues()
           }
         case .failure(let error):
