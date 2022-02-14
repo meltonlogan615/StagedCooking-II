@@ -26,6 +26,7 @@ class CellForTableView: UITableViewCell {
     label.numberOfLines = 0
     label.lineBreakMode = .byWordWrapping
     label.font = UIFont.preferredFont(forTextStyle: .headline)
+    label.tintColor = UIColor(named: "AppBlack")
     return label
   }()
   
@@ -35,7 +36,7 @@ class CellForTableView: UITableViewCell {
     label.numberOfLines = 1
     label.lineBreakMode = .byTruncatingTail
     label.font = UIFont.preferredFont(forTextStyle: .subheadline)
-    label.tintColor = .tertiaryLabel
+    label.tintColor = UIColor(named: "AppBlack")
     return label
   }()
   
@@ -49,15 +50,12 @@ class CellForTableView: UITableViewCell {
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     self.isAccessibilityElement = true
-    
-// MARK: - Adding to Cell
+    backgroundColor = .clear
     self.contentView.addSubview(image)
     self.contentView.addSubview(titleLabel)
     self.contentView.addSubview(dietLabel)
     self.contentView.addSubview(typeImage)
-    
-// MARK: - Setting Constraints
-    
+        
     NSLayoutConstraint.activate([
       image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
       image.widthAnchor.constraint(equalToConstant: 80),
@@ -67,7 +65,6 @@ class CellForTableView: UITableViewCell {
     NSLayoutConstraint.activate([
       titleLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
       titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: image.trailingAnchor, multiplier: 2),
-//      contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: titleLabel.trailingAnchor, multiplier: 2)
     ])
     
     NSLayoutConstraint.activate([

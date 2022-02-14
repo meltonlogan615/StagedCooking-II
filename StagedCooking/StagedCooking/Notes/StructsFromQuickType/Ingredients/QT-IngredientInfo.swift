@@ -18,7 +18,7 @@ struct QTIngredientInfo: Codable, Identifiable {
   var consistency: String
   var shoppingListUnits: [String]
   var aisle, image: String
-  var meta: [JSONAny]
+  var meta: [JSONAnyQ]
   var nutrition: QTNutrition
   var categoryPath: [String]
 }

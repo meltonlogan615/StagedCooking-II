@@ -11,6 +11,6 @@ import Foundation
 struct WinePairing: Decodable, Hashable {
   var pairingText: String?
   var pairedWines: [String]?
-  var productMatches: [Product]? // may be it's own thing
+  var productMatches: [Product]?
 }
 

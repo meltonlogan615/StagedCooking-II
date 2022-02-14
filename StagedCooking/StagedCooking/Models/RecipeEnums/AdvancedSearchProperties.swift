@@ -13,7 +13,7 @@ enum AdvancedSearchProperties {
   case nutrients(MinMaxNutrients)
   case diets(Diets)
   case intolerances(Intolerances)
-  case equipement(Equipment)
+  case equipement(AnalyzedEquipment)
 }
 
 // MARK: - TextField Values (String)

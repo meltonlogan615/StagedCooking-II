@@ -23,7 +23,7 @@ struct ParseObjectProperties {
         objectPropertyDictionary[label] = String(propertyValue)
       } else if let props = value as? Product {
         objectPropertyDictionary[label] = props.title
-      } else if let props = value as? Equipment {
+      } else if let props = value as? AnalyzedEquipment {
         objectPropertyDictionary[label] = props.name
       } else if let props = value as? Ingredient {
         objectPropertyDictionary[label] = props.name

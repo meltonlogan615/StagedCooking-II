@@ -23,6 +23,8 @@ class ActionButton: UIButton {
 extension ActionButton {
   func style() {
     translatesAutoresizingMaskIntoConstraints = false
+    backgroundColor = UIColor(named: "AppYellow")
+    tintColor = UIColor(named: "AppBlack")
     configuration = .borderedTinted()
     configuration?.buttonSize = .medium
     configuration?.imagePadding = 8

@@ -7,13 +7,13 @@
 
 import Foundation
 
-class JSONAny: Codable {
+class JSONAnyQ: Codable {
   
   let value: Any
   
   static func decodingError(forCodingPath codingPath: [CodingKey]) -> DecodingError {
     let context = DecodingError.Context(codingPath: codingPath, debugDescription: "Cannot decode JSONAny")
-    return DecodingError.typeMismatch(JSONAny.self, context)
+    return DecodingError.typeMismatch(JSONAnyQ.self, context)
   }
   
   static func encodingError(forValue value: Any, codingPath: [CodingKey]) -> EncodingError {
@@ -179,25 +179,25 @@ class JSONAny: Codable {
   
   public required init(from decoder: Decoder) throws {
     if var arrayContainer = try? decoder.unkeyedContainer() {
-      self.value = try JSONAny.decodeArray(from: &arrayContainer)
+      self.value = try JSONAnyQ.decodeArray(from: &arrayContainer)
     } else if var container = try? decoder.container(keyedBy: JSONCodingKey.self) {
-      self.value = try JSONAny.decodeDictionary(from: &container)
+      self.value = try JSONAnyQ.decodeDictionary(from: &container)
     } else {
       let container = try decoder.singleValueContainer()
-      self.value = try JSONAny.decode(from: container)
+      self.value = try JSONAnyQ.decode(from: container)
     }
   }
   
   public func encode(to encoder: Encoder) throws {
     if let arr = self.value as? [Any] {
       var container = encoder.unkeyedContainer()
-      try JSONAny.encode(to: &container, array: arr)
+      try JSONAnyQ.encode(to: &container, array: arr)
     } else if let dict = self.value as? [String: Any] {
       var container = encoder.container(keyedBy: JSONCodingKey.self)
-      try JSONAny.encode(to: &container, dictionary: dict)
+      try JSONAnyQ.encode(to: &container, dictionary: dict)
     } else {
       var container = encoder.singleValueContainer()
-      try JSONAny.encode(to: &container, value: self.value)
+      try JSONAnyQ.encode(to: &container, value: self.value)
     }
   }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 protocol RecipeByID: AnyObject {
   func loadRecipeByID(for chosenID: Int)
-  func loadIngredientsByID(for chosenID: Int)
+//  func loadIngredientsByID(for chosenID: Int)
 }
 
 class RecipeListTableViewController: UITableViewController, PassingRequest {
@@ -28,7 +28,8 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
     super.viewDidLoad()
     recipesTableView.register(CellForTableView.self, forCellReuseIdentifier: "recipeCell")
     recipesTableView.bounces = true
-    
+    recipesTableView.backgroundColor = .clear
+    view.backgroundColor = UIColor(named: "AppWhite")
     title = searchedRecipe.capitalized
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(dismissView))
     
@@ -72,6 +73,8 @@ class RecipeListTableViewController: UITableViewController, PassingRequest {
       }
       if let recipeImage = recipeItems[indexPath.row].image {
         cell.image.loadImage(url: recipeImage)
+        cell.image.layer.cornerRadius = 8
+        cell.image.clipsToBounds = true
       }
     }
     cell.accessoryType = .disclosureIndicator
@@ -147,11 +150,6 @@ extension RecipeListTableViewController {
   }
 }
 
-extension RecipeListTableViewController {
-  @objc func loadMoreRecipes() {
-    print("poop")
-  }
-}
 
 
 

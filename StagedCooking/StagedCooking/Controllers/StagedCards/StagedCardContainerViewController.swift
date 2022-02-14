@@ -18,8 +18,8 @@ class StagedCardContainerViewController: UIViewController {
   
   var recipe = Recipe()
   
-  
   var ingredientsTest = [Ingredient]()
+  var recipeIngredients = [Ingredient]()
   let recipeName = "Bacon"
   let cardCounter = 1
   let ingredientValues = [1, 2, 3, 4]
@@ -114,7 +114,15 @@ extension StagedCardContainerViewController: UIPageViewControllerDataSource {
   }
 }
 
-// MARK: - Actions
-
+//extension StagedCardContainerViewController {
+//  func getIngredients() {
+//    if let recipeIngredints = recipe.extendedIngredients {
+//      for recipeIngredint in recipeIngredints {
+//        recipeIngredients.append(recipeIngredint)
+//      }
+//    }
+//    print(String(describing: recipeIngredients))
+//  }
+//}
 
 

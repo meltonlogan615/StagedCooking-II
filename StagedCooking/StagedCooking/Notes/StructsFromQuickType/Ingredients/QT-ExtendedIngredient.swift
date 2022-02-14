@@ -10,14 +10,15 @@ import Foundation
 // Is the DataType passed into a 
 
 struct QTExtendedIngredient: Codable, Identifiable {
-  var aisle: String
-  var amount: Double
-  var consitency: Consitency
-  var id: Int
-  var image: String
-  var measures: Measures
-  var meta: [String]
-  var name, original, originalName, unit: String
+  var id: Int?
+  var name: String?
+  var aisle: String?
+  var amount: Double?
+  var consitency: Consitency?
+  var image: String?
+  var measures: Measures?
+  var meta: [String]?
+  var original, originalName, unit: String?
 }
 
 enum Consitency: String, Codable {

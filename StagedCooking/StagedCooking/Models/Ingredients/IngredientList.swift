@@ -1,9 +1,12 @@
-////
-//" IngredientList.swift
-//" StagedCooking
-////
-//" Created by Logan Melton on 11/28,/21.
-////
+//
+// IngredientList.swift
+// StagedCooking
+//
+// Created by Logan Melton on 11/28,/21.
+//
+
+
+// TODO: - Convert to Enum
 
 import Foundation
 

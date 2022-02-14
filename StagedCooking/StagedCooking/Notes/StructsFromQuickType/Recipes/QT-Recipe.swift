@@ -18,17 +18,17 @@ struct QTRecipe: Decodable, Identifiable {
   var spoonacularSourceURL: String
   var aggregateLikes, healthScore, spoonacularScore: Int
   var pricePerServing: Double
-  var analyzedInstructions: [JSONAny]
+  var analyzedInstructions: [JSONAnyQ]
   var cheap: Bool
   var creditsText: String
-  var cuisines: [JSONAny]
+  var cuisines: [JSONAnyQ]
   var dairyFree: Bool
-  var diets: [JSONAny]
+  var diets: [JSONAnyQ]
   var gaps: String
   var glutenFree: Bool
   var instructions: String
   var ketogenic, lowFodmap: Bool
-  var occasions: [JSONAny]
+  var occasions: [JSONAnyQ]
   var sustainable, vegan, vegetarian, veryHealthy: Bool
   var veryPopular, whole30: Bool
   var weightWatcherSmartPoints: Int

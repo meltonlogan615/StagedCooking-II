@@ -18,6 +18,7 @@ class LogInViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     accessibilityLabel = "Log in to Staged Cooking"
+    view.backgroundColor = UIColor(named: "AppWhite")
     style()
     layout()
     addButtonActions()

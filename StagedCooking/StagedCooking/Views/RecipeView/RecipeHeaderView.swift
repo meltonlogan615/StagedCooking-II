@@ -40,7 +40,7 @@ extension RecipeHeaderView {
     headerStack.spacing = 8
     
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.contentMode = .scaleAspectFit    
+    imageView.contentMode = .scaleAspectFit
   }
   
   func layout() {

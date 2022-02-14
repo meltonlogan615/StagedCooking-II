@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Ingredient: Decodable, Identifiable, Comparable, Hashable {
+struct Ingredient: Codable, Identifiable, Comparable, Hashable {
   var id: Int?
-//  var aisle: String?
-//  var image: String?
+  var aisle: String?
+  var image: String?
   var name: String?
-//  var amount: [Units]?
-//  var originalString: String?
-//  var metaInformation: [String]?
+  var amount: [Units]?
+  var originalString: String?
+  var metaInformation: [String]?
   
   static func < (lhs: Self, rhs: Self) -> Bool {
     var result = false

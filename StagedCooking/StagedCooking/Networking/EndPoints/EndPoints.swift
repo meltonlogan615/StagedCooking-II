@@ -20,7 +20,6 @@ extension EndPoints {
     guard let url = completedURL else {
       preconditionFailure("Invalid URL: \(String(describing: completedURL))")
     }
-    print(String(describing: url))
     return url
   }
 }
@@ -32,9 +31,21 @@ extension EndPoints {
     guard let idURL = idURL else {
       preconditionFailure("Invalid URL: \(String(describing: idURL))")
     }
+    print("idURL:", String(describing: idURL))
     return idURL
   }
 }
+// Extension to build URL for Anylized Instructions
+//extension EndPoints {
+//  var endpointForInstructions: URL {
+//    let instructionsURL = URL(string: "poop")
+//    guard let instructionsURL = instructionsURL else {
+//      preconditionFailure("Invalid URL: \(String(describing: instructionsURL))")
+//    }
+//    print(String(describing: instructionsURL))
+//    return instructionsURL
+//  }
+//}
 
 extension EndPoints {
   
@@ -50,6 +61,10 @@ extension EndPoints {
   
   static func getIngredientsByID(forID: Int) -> EndPoints {
     return EndPoints(recipeID: ChefDefault.requestedID)
+  }
+  
+  static func getInstructions() -> EndPoints {
+    return EndPoints()
   }
   
 }

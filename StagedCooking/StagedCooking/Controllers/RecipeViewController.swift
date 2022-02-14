@@ -17,6 +17,7 @@ class RecipeViewController: UIViewController {
   
   var recipe = Recipe()
   var ingredients = [Ingredient]()
+  var extendedIngredints = [ExtendedIngredient]()
   var recipeID = 0
   var propertyDictionary = [String: String]()
   var ingredientDictionary = [String: String]()
@@ -30,7 +31,7 @@ class RecipeViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     loadRecipeByID(for: recipeID)
-    loadIngredientsByID(for: recipeID)
+//    loadIngredientsByID(for: recipeID)
     
   }
   
@@ -88,7 +89,6 @@ extension RecipeViewController {
   @objc func startCookingButtonTapped(_ sender: UIButton) {
     let stagesVC = StagedCardContainerViewController()
     stagesVC.recipe = self.recipe
-    stagesVC.ingredientsTest = self.ingredients
     navigationController?.pushViewController(stagesVC, animated: true)
   }
 }
@@ -101,9 +101,8 @@ extension RecipeViewController: RecipeByID {
       guard let self = self else { return }
       switch foodResult {
         case .success(let model):
-          DispatchQueue.main.async {
+          DispatchQueue.main.async { [self] in
             self.recipe = model as Recipe
-            print(self.recipe)
             self.propertyDictionary = ParseObjectProperties.iterateObject(self.recipe)
             ChefDefault.addToViewed(recipeDictionary: self.propertyDictionary)
             ChefDefault.saveChanges()
@@ -122,6 +121,7 @@ extension RecipeViewController: RecipeByID {
         case .success(let model):
           DispatchQueue.main.async {
             self.ingredients = model as [Ingredient]
+            print(String(describing: self.ingredients))
             self.ingredientDictionary = ParseObjectProperties.iterateObject(self.ingredients)
           }
         case .failure(let error):
@@ -135,6 +135,7 @@ extension RecipeViewController: RecipeByID {
 extension RecipeViewController {  
   func setAttributeValues() {
     if let titleText = propertyDictionary["title"] {
+      print(titleText)
       self.title = titleText
     }
     if let image = propertyDictionary["image"] {

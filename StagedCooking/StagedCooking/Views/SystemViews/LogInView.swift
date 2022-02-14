@@ -34,11 +34,13 @@ extension LogInView {
   
   func style() {
     translatesAutoresizingMaskIntoConstraints = false
+    backgroundColor = .clear
     
     logInStack.translatesAutoresizingMaskIntoConstraints = false
     logInStack.axis = .vertical
     logInStack.spacing = 24
     logInStack.distribution = .equalSpacing
+    backgroundColor = .clear
     
     chefEmailTextField.translatesAutoresizingMaskIntoConstraints = false
     chefEmailTextField.placeholder = "Chef Email"
@@ -55,6 +57,7 @@ extension LogInView {
     
     newChefLabel.translatesAutoresizingMaskIntoConstraints = false
     newChefLabel.textAlignment = .center
+    newChefLabel.tintColor = UIColor(named: "AppBlack")
     newChefLabel.numberOfLines = 0
     newChefLabel.text = "New to Staged Cooking? \nCreate an account to add Favorites and view Saved, Previously Viewed and Previously Searched Recipes."
     

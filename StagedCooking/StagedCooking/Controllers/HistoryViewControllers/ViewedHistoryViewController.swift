@@ -26,7 +26,7 @@ class ViewedHistoryViewController: UITableViewController {
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editList))
     self.title = "Viewed History"
     self.isAccessibilityElement = true
-    self.accessibilityLabel = "Viewd History"
+    self.accessibilityLabel = "Viewed History"
     ChefDefault.loadData()
     print( ChefDefault.viewedRecipes)
   }
@@ -41,7 +41,6 @@ class ViewedHistoryViewController: UITableViewController {
     let value = ChefDefault.viewedRecipes[indexPath.row]["title"]
     config.text = value
     cell.contentConfiguration = config
-    
     cell.isAccessibilityElement = true
     cell.accessibilityLabel = value
     
@@ -49,7 +48,7 @@ class ViewedHistoryViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("tappa-tappa-tappa")
+//    let recipeID = self.recipe["id"]
 
   }
   

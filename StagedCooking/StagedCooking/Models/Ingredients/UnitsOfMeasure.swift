@@ -7,19 +7,19 @@
 
 import Foundation
 
-struct Units: Decodable, Hashable {
+struct Units: Codable, Hashable {
   var metric: MetricUnits?
   var us: USUnits?
   
-  struct MetricUnits: Decodable, Hashable {
-    var value: Double?
+  struct MetricUnits: Codable, Hashable {
+    var amount: Double?
     var unit: String?
     var unitShort: String?
     var unitLong: String?
   }
   
-  struct USUnits: Decodable, Hashable {
-    var value: Double?
+  struct USUnits: Codable, Hashable {
+    var amount: Double?
     var unit: String?
     var unitShort: String?
     var unitLong: String?

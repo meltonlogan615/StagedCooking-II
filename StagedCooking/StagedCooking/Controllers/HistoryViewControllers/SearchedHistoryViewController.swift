@@ -22,7 +22,7 @@ class SearchHistoryViewController: UITableViewController {
     self.title = "Search History"
     
     self.isAccessibilityElement = true
-    self.accessibilityLabel = "Searhc History"
+    self.accessibilityLabel = "Search History"
     
     style()
     layout()
